@@ -25,6 +25,7 @@ function App() {
             <div key={movie.id}>
               <img src={movie.medium_cover_image} />
               <h2> 제목: {movie.title}</h2>
+              <h4>연도: {movie.year}</h4>
               <p>줄거리: {movie.summary ? movie.summary : "없음"}</p>
               <ul>
                 {movie.genres.map((g) => (
