@@ -1,16 +1,17 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import styles from "./Movie.module.css";
 
 function Movie({ id, coverImg, title, summary, genres, year }) {
   return (
-    <div>
-      <img src={coverImg} alt={title} />
-      <h2>
-        <Link to={`/movie/${id}`}> 제목: {title} </Link>
+    <div className={styles.movie}>
+      <img src={coverImg} alt={title} className={styles.movie__img} />
+      <h2 className={styles.movie__title}>
+        <Link to={`/movie/${id}`}> {title} </Link>
       </h2>
-      <h4>연도: {year}</h4>
-      <p>줄거리: {summary ? summary : "없음"}</p>
-      <ul>
+      <h4 className={styles.movie__year}>{year}</h4>
+      <p>{summary.length > 235 ? `${summary.slice(0, 235)}...` : summary}</p>
+      <ul className={styles.movie__genres}>
         {genres.map((g) => (
           <li key={g}>{g}</li>
         ))}
