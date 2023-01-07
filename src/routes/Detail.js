@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Movie from "../components/Movie";
 import styles from "./Home.module.css";
 
@@ -16,15 +16,9 @@ function Detail() {
     setMovies(json.data.movies);
     setLoading(false);
   };
-  const getMovie = useCallback(async () => {
-    const json = await (
-      await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
-    ).json();
-    console.log(json);
-  });
   useEffect(() => {
-    getMovie();
-  }, [getMovie]);
+    getMovies();
+  }, []);
   console.log(id);
   return (
     <div>
