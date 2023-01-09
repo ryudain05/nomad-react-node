@@ -1,5 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import styles from "./Home.module.css";
 
 function Detail() {
   const { id } = useParams();
@@ -17,7 +18,13 @@ function Detail() {
   console.log(id);
   return (
     <div>
-      <h1>{movie.title}</h1>
+      <h1 className={styles.movie__title}> {movie.title} </h1>
+      <img className={styles.movie__img} src={movie.large_cover_image} />
+      <p>{movie.description_full}</p>
+      <ul className={styles.movie__genres}>{movie.genres}</ul>
+      <h2 className={styles.movie__title}>
+        <Link to={"/nomad-react-node"}> Back Home </Link>
+      </h2>
     </div>
   );
 }
