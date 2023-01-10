@@ -17,7 +17,7 @@ function Detail() {
   }, []);
   console.log(id);
   return (
-    <div>
+    <div className={styles.movie}>
       <img className={styles.movie__img} src={movie.large_cover_image} />
       <h1>{movie.title} </h1>
       {movie.genres}
